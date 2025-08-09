@@ -43,16 +43,16 @@ const Hero = () => {
           </div>
 
           <div className="flex justify-center space-x-6">
-            <a href="#" className="text-gray-400 hover:text-blue-400 transform hover:scale-110 transition-all duration-300">
+            <a href="https://github.com/NewWayYaaro" className="text-gray-400 hover:text-blue-400 transform hover:scale-110 transition-all duration-300">
               <Github size={24} />
             </a>
             <a href="#" className="text-gray-400 hover:text-blue-400 transform hover:scale-110 transition-all duration-300">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-red-400 transform hover:scale-110 transition-all duration-300">
+            <a href="https://www.youtube.com/@bekskitchenhub" className="text-gray-400 hover:text-red-400 transform hover:scale-110 transition-all duration-300">
               <Youtube size={24} />
             </a>
-            <a href="#contact" className="text-gray-400 hover:text-green-400 transform hover:scale-110 transition-all duration-300">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=newwayyaaro@gmail.com&su=Portfolio%20Inquiry&body=Hi%20Anuj%2C%0A%0AI%20visited%20your%20portfolio%20and%20wanted%20to%20connect." className="text-gray-400 hover:text-green-400 transform hover:scale-110 transition-all duration-300">
               <Mail size={24} />
             </a>
           </div>
