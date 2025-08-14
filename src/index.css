@@ -1,42 +1,94 @@
+/* ===== Tailwind CSS ka base setup import kar rahe hain =====
+   Ye Tailwind ke default styles, components aur utilities ko load karega */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom animations */
-@keyframes fadeInUp {
+
+/* ===== Custom animations ka section ===== */
+
+/* "fadeInUp" animation: 
+   Isme element shuru me neeche se (30px) thoda slide hoke aayega aur dhire-dhire visible hoga */
+body {
+  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300;
+}
+
+   @keyframes fadeInUp {
   from {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 0; /* Start me element invisible hoga */
+    transform: translateY(30px); /* 30px neeche se shuru hoga */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* End me element fully visible hoga */
+    transform: translateY(0); /* Apni normal position me aayega */
   }
 }
 
+/* "animate-fadeInUp" class: 
+   Agar kisi element me ye class lagayi to wo fadeInUp animation run karega */
 .animate-fadeInUp {
-  animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 1s ease-out; /* 1 second me smooth transition hoga */
 }
 
-/* Smooth scrolling */
+
+/* ===== Smooth scrolling =====
+   Jab user page scroll kare to wo smoothly scroll ho */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+
+/* ===== Custom scrollbar styling ===== */
+
+/* Scrollbar ki width ko chhota kar diya */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
+/* Scrollbar ke background track ka color dark gray */
 ::-webkit-scrollbar-track {
   background: #1f2937;
 }
 
+/* Scrollbar ka moving part (thumb) ka color blue aur corners thode gol */
 ::-webkit-scrollbar-thumb {
   background: #4f46e5;
   border-radius: 4px;
 }
 
+/* Jab mouse thumb pe aaye to color thoda light blue ho jaye */
 ::-webkit-scrollbar-thumb:hover {
   background: #6366f1;
+}
+
+
+/* ===== Ripple effect styling =====
+   Ye ek circle type animation banata hai jab click hota hai */
+
+/* Ripple class:
+   - Position absolute (click ke point pe show hoga)
+   - Transparent white color ka circle
+   - Start me chhota hota hai (scale 0)
+   - Animation ke through bada hota hai aur fade out ho jata hai */
+.ripple {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.3); /* Transparent white */
+  border-radius: 50%; /* Circle shape */
+  transform: translate(-50%, -50%) scale(0); /* Center align aur small start */
+  animation: ripple-anim 0.6s ease-out forwards; /* Ripple animation 0.6 sec me complete */
+  pointer-events: none; /* Click ripple pe effect na kare */
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); /* Thoda glow effect */
+  mix-blend-mode: screen; /* Background ke sath blend hoke light effect dega */
+}
+
+/* Ripple animation ka step:
+   - End me circle apne size pe aata hai (scale 1)
+   - Aur completely invisible ho jata hai */
+@keyframes ripple-anim {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
